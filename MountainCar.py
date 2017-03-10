@@ -55,7 +55,7 @@ class Agent():
 				episode = self.drawEpisodeGreedily()
 			self.updateFunctionApproximator(episode)
 			episode_counter += 1
-			self.EPSILON = max(0.25, (self.EPSILON * 0.8))
+			self.EPSILON = max(0.25, (self.EPSILON * 0.95))
 
 	def drawEpisodeStochastically(self):
 		episode = []
@@ -129,24 +129,3 @@ env = gym.make('MountainCarModified-v0')
 env = wrappers.Monitor(env, './recordings/mountain_car', force=True)
 agent = Agent(env, step_size= 0.05, gamma = 1)
 agent.start()
-
-#print(env.action_space)
-#print(env.observation_space.high)
-#print(env.observation_space)
-
-'''
-episode_length = 0
-done = False
-while(not done):
-	env.render()
-	action = env.action_space.sample()
-	observation, reward, done, info = env.step(2)
-	#print('Action', action)
-	print('Observation', observation)
-	#print('Reward', reward)
-	print('Info', info)
-	#print('')
-	episode_length += 1
-
-print('Episode Length is', str(episode_length))
-'''

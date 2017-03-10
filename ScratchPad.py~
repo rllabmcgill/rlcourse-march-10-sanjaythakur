@@ -1,3 +1,0 @@
-import Tiles.tiles as tiles
-
-tiles(numtilings, memsize, floats, ints)

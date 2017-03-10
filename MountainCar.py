@@ -29,6 +29,7 @@ class Agent():
 			current_estimated_value = self.doFunctionApproximationFromStateActionPair(episode_step)
 			delta_weights = np.multiply(np.multiply(self.step_size, self.getFeatureVector(episode_step)), (discounted_return - current_estimated_value))
 			self.weights = self.weights + delta_weights
+		print("Updated")
 
 	def getDiscountedReturn(self, episode):
 		discounted_return = 0.0

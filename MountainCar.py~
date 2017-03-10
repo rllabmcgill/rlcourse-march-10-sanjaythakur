@@ -23,7 +23,7 @@ class Agent():
 		
 	def updateFunctionApproximator(self, episode):
 		for episode_step_iterator in range(len(episode)):
-			print(str(episode_step_iterator))
+			#print(str(episode_step_iterator))
 			episode_step = episode[episode_step_iterator]
 			discounted_return = self.getDiscountedReturn(episode[episode_step_iterator:])
 			current_estimated_value = self.doFunctionApproximationFromStateActionPair(episode_step)
